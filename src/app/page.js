@@ -48,7 +48,7 @@ export default async function Home() {
       </div>
 
       {/* Increasing Products Section */}
-      <div className="container mx-auto">
+      <div className="container mx-auto my-5">
         <h2 className="flex items-center gap-2 text-[#1D271F] text-[20px] font-bold mb-3">
           <span className="text-[#D03739]">
             <FaCaretUp />
@@ -69,8 +69,8 @@ export default async function Home() {
         <ProductCard dir="down" />
       </div>
 
-      {/* Decreasing Products Section */}
-      <div className="container mx-auto" id="সব-পণ্য">
+      {/* All Products Section */}
+      <div className="container mx-auto my-5" id="সব-পণ্য">
         <h2 className="flex items-center gap-2 text-[#1D271F] text-[20px] font-bold">
           সব পণ্য
         </h2>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
@@ -21,9 +22,10 @@ const ProductCard = async ({ dir }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {filteredProducts.map((product) => (
+        <Link href={`/product/${product.slug}`} key={product.id}>
         <div
-          key={product.id}
-          className="border border-[#E1E8E1] rounded-2xl p-4 bg-white"
+          
+          className="border border-[#E1E8E1] hover:border-[#05893e] rounded-2xl p-4 bg-white"
         >
           <div className="flex items-center gap-3">
             <div className="bg-[#F0F5F0] rounded-xl px-3 py-2">
@@ -40,12 +42,13 @@ const ProductCard = async ({ dir }) => {
                 <p className="text-[14px] font-medium text-[#1D271F]"><span className="font-bold text-[20px]">{toBangla(product.today)}</span> টাকা</p>
             </div>
             <div>
-                <p className={`flex items-center py-1 px-2 rounded-2xl bg-[#F0F5F0]  ${product.change.dir === "up" ? "text-[#D03739]" : "text-[#1A9951]"}`}>
-                              {product.change.dir === "up" ? <FaCaretUp /> : <FaCaretDown />} {toBangla(Math.abs(product.change.pct))}%
+                <p className={`flex items-center py-1 px-2 rounded-2xl bg-[#F0F5F0]  ${product.change.dir === "up" ? "text-[#D03739]" : product.change.dir === "flat" ? "text-[#1c261e]" : "text-[#1A9951]"}`}>
+                              {product.change.dir === "up" ? <FaCaretUp /> : product.change.dir === "flat" ? "—" : <FaCaretDown />} {toBangla(Math.abs(product.change.pct))}%
                             </p>
             </div>
           </div>
         </div>
+        </Link>
       ))}
     </div>
   );

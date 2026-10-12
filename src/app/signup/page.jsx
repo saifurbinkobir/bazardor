@@ -9,7 +9,7 @@ import { authClient } from "@/lib/auth-client";
 const SignUpPage = () => {
   const router = useRouter();
 
-  const handleSignIn = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const user = Object.fromEntries(formData.entries());
@@ -39,7 +39,7 @@ const SignUpPage = () => {
 
       {/* Form Area */}
       <div className="p-6 rounded-2xl border border-[#E1E8E1] bg-white my-4">
-        <form className="flex flex-col gap-4" onSubmit={handleSignIn}>
+        <form className="flex flex-col gap-4" onSubmit={handleSignUp}>
           <div>
             <label htmlFor="name">নাম</label>
             <br />

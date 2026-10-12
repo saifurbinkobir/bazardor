@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Marquee from "./Marquee";
 import NavLinks from "./NavLinks";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -21,14 +22,7 @@ const Header = () => {
               </h2>
             </div>
           </Link>
-          <div className="flex items-center gap-5">
-            <Link className="text-[14px] font-semibold text-[#1D271F]" href={'signin'}>
-              সাইন ইন
-            </Link>
-            <Link className="rounded-lg bg-[#047F39] px-4.5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_3px_-2px_rgba(5,137,62,0.3)]" href={'signup'}>
-              সাইন আপ
-            </Link>
-          </div>
+          <UserInfo></UserInfo>
         </div>
       </div>
       

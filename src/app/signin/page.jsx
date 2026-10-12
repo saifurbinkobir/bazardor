@@ -3,7 +3,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { createAuthClient } from "better-auth/client";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 
@@ -25,6 +25,16 @@ const SignInPage = () => {
                 toast.error(error.message);
             }
         }
+        const handleGoogleSignIn = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+};
+const handleGithubSignIn = async () => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    })
+}
     return (
         <div className="my-10 flex flex-col items-center">
               <h2 className="text-[#1D271F] font-bold text-[24px]">
@@ -82,14 +92,14 @@ const SignInPage = () => {
                 <div className="flex items-center gap-4">
                   <button
                     type="button"
-                    className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm"
+                    className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm cursor-pointer" onClick={handleGoogleSignIn}
                   >
                     <span><FcGoogle /></span>
                     <span>Google দিয়ে চালিয়ে যান</span>
                   </button>
                   <button
                     type="button"
-                    className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm"
+                    className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm cursor-pointer" onClick={handleGithubSignIn}
                   >
                     <span><FaGithub /></span>
                     <span>GitHub দিয়ে চালিয়ে যান</span>

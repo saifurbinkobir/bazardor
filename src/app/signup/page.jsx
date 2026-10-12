@@ -27,6 +27,16 @@ const SignUpPage = () => {
     }
     console.log("User Data", data);
   };
+  const handleGoogleSignUp = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+  const handleGithubSignUp = async () => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    })
+}
 
   return (
     <div className="my-10 flex flex-col items-center">
@@ -110,14 +120,14 @@ const SignUpPage = () => {
         <div className="flex items-center gap-4">
           <button
             type="button"
-            className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm"
+            className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm cursor-pointer" onClick={handleGoogleSignUp}
           >
             <span><FcGoogle /></span>
             <span>Google দিয়ে চালিয়ে যান</span>
           </button>
           <button
             type="button"
-            className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm"
+            className="flex items-center gap-2 border border-[#E1E8E1] rounded-lg py-2.5 px-3 text-[14px] font-semibold text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm cursor-pointer" onClick={handleGithubSignUp}
           >
             <span><FaGithub /></span>
             <span>GitHub দিয়ে চালিয়ে যান</span>

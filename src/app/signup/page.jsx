@@ -20,10 +20,11 @@ const SignUpPage = () => {
     });
 
     if (data) {
+      toast.success(`সাইন আপ সফল হয়েছে !`)
       router.push("/");
     }
     if (error) {
-      console.log(error);
+      toast.error('দুঃখিত সমস্যা হয়েছে ');
     }
     console.log("User Data", data);
   };

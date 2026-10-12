@@ -1,8 +1,11 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 const ProfilePage = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
+  const router = useRouter();
   console.log(user);
 
   const handleUpdateProfile = async (e) => {
@@ -12,10 +15,12 @@ const ProfilePage = () => {
     await authClient.updateUser({
       ...newUserData,
     });
-    alert("Profile Updated");
+    toast.success("প্রোফাইল আপডেট সফল হয়েছে ");
   };
   const handleSignOut = async () => {
     await authClient.signOut();
+    router.push("/");
+    toast.warning("সাইন আউট সফল হয়েছে")
   };
 
   return (

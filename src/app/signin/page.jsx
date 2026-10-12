@@ -19,10 +19,10 @@ const SignInPage = () => {
                 callbackURL: "/"
             });
             if(data){
-                toast.success(`Sign in Successfully!`)
+                toast.success(`সাইন ইন সফল হয়েছে !`)
             }
             if(error){
-                toast.error(error.message);
+                toast.error('দুঃখিত সমস্যা হয়েছে ');
             }
         }
         const handleGoogleSignIn = async () => {

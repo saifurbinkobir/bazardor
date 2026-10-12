@@ -2,12 +2,14 @@
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const UserInfo = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const handleSignOut = async () => {
     await authClient.signOut();
+    toast.warning("সাইন আউট সফল হয়েছে")
   };
 
   const [showProfile, setShowProfile] = useState(false);
@@ -46,13 +48,13 @@ const UserInfo = () => {
         <div className="flex items-center gap-5">
           <Link
             className="text-[14px] font-semibold text-[#1D271F]"
-            href={"signin"}
+            href={"/signin"}
           >
             সাইন ইন
           </Link>
           <Link
             className="rounded-lg bg-[#047F39] px-4.5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_3px_-2px_rgba(5,137,62,0.3)]"
-            href={"signup"}
+            href={"/signup"}
           >
             সাইন আপ
           </Link>

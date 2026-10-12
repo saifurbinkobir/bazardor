@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { BsChevronRight } from "react-icons/bs";
+import { notFound } from "next/navigation";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 const SingleProductPage = async ({ params }) => {
@@ -10,6 +11,9 @@ const SingleProductPage = async ({ params }) => {
   );
   const data = await res.json();
   const product = data.find((item) => item.slug === productId);
+  if (!product) {
+    notFound();
+  }
   const toBangla = (value) =>
     String(value).replace(/[0-9]/g, (digit) => "০১২৩৪৫৬৭৮৯"[digit]);
 
@@ -185,7 +189,14 @@ const SingleProductPage = async ({ params }) => {
       </div>
 
       <div className="mt-5 flex">
-        <Link className='flex items-center gap-1.5 py-1.75 px-3.75 text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm rounded-lg' key={product.id} href={`/category/${product.category}`}><span>{product.categoryIcon}</span>  সব <span>{product.categoryNameBn}</span></Link>
+        <Link
+          className="flex items-center gap-1.5 py-1.75 px-3.75 text-[#1D271F] hover:bg-[#dadeda] hover:shadow-sm rounded-lg"
+          key={product.id}
+          href={`/category/${product.category}`}
+        >
+          <span>{product.categoryIcon}</span> সব{" "}
+          <span>{product.categoryNameBn}</span>
+        </Link>
       </div>
     </div>
   );

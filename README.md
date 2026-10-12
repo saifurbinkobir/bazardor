@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛒 বাজার দর | BazarDor
 
-## Getting Started
+**BazarDor** is a Bengali-language daily market price tracking website built with Next.js. Users can explore everyday essential product prices, compare prices across different markets, track price increases and decreases, and find detailed product information in one place.
 
-First, run the development server:
+## 🛠️ Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js (App Router)** – Frontend framework and routing
+- **React.js** – Component-based user interface
+- **JavaScript** – Application logic and functionality
+- **Tailwind CSS** – Responsive styling
+- **DaisyUI** – UI components
+- **Better Auth** – User authentication and Google sign-in
+- **React Icons** – Icons throughout the website
+- **React Toastify** – Toast notifications
+- **REST API** – Product and category data from Programming Hero API
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**1. Daily Market Price Tracking**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+View updated prices of essential products, including rice, lentils, vegetables, fish, meat, oil, and spices, with Bengali product names and prices.
 
-## Learn More
+**2. Price Increase and Decrease Tracking**
 
-To learn more about Next.js, take a look at the following resources:
+Quickly identify products whose prices have increased or decreased compared to yesterday, with percentage changes and color-coded indicators.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**3. Detailed Product Information**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Explore individual product pages featuring today's price, yesterday's price comparison, minimum and maximum prices, estimated average prices, and market-wise price breakdowns.
 
-## Deploy on Vercel
+**4. Category-Based Browsing and Price Sorting**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Browse products by category and sort them from lowest to highest or highest to lowest price. The website also includes responsive navigation and active category indicators.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**5. User Authentication and Profile Management**
+
+Create an account, sign in using email and password or Google, access protected pages, update profile information, and sign out securely using Better Auth.
+
+## 🌐 API
+
+Product and category information is fetched from the [Programming Hero BazarDor API](https://openapi.programming-hero.com/api/bazardor/products).
+
+---
+
+Built with Next.js, React, and Tailwind CSS.

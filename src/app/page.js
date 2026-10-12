@@ -1,12 +1,16 @@
+import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 export default function Home() {
   const date = new Date().toLocaleDateString("bn-BD", {
     dateStyle: "full",
   });
   return (
-    <div className="my-7.5">
+    <div className="my-7.5 flex flex-col gap-10">
+
+      {/* Hero Section */}
       <div className="container mx-auto border border-[#E1E8E1] rounded-3xl py-2.5 px-4 bg-white flex flex-col md:flex-row items-center justify-between">
         {/* Hero Text Area */}
         <div>
@@ -30,8 +34,27 @@ export default function Home() {
 
         {/* Hero Image Area */}
         <div>
-          <Image src={'/bazar-hero.png'} alt="বাজারের দাম" height={360} width={288}></Image>
+          <Image src={'/bazar-hero.png'} alt="বাজারের দাম" height={360} width={288} loading="eager"></Image>
         </div>
+      </div>
+
+      {/* Increasing Products Section */}
+      <div className="container mx-auto">
+        <h2 className="flex items-center gap-2 text-[#1D271F] text-[20px] font-bold mb-3"><span className="text-[#D03739]"><FaCaretUp /></span>আজ দাম বেড়েছে</h2>
+        <ProductCard dir="up" />
+      </div>
+
+      {/* Decreasing Products Section */}
+      <div className="container mx-auto">
+        <h2 className="flex items-center gap-2 text-[#1D271F] text-[20px] font-bold mb-3"><span className="text-[#1A9951]"><FaCaretDown /></span>আজ দাম কমেছে</h2>
+        <ProductCard dir="down" />
+      </div>
+
+      {/* Decreasing Products Section */}
+      <div className="container mx-auto" id="সব-পণ্য">
+        <h2 className="flex items-center gap-2 text-[#1D271F] text-[20px] font-bold">সব পণ্য</h2>
+        <p className="text-[#5c655e] text-[14px] font-normal mb-4">মোট ৩৩টি পণ্য দেখানো হচ্ছে</p>
+        <ProductCard></ProductCard>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const ProductCard = async ({ dir }) => {
   const products = data;
   const filteredProducts = dir ? products.filter(product => product.change.dir === dir).slice(0,6) : products;
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {filteredProducts.map((product) => (
         <div
           key={product.id}

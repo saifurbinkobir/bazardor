@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-[#f0f5f0]">
         <Header></Header>
-        <main>
+        <main className="my-7.5 flex flex-col gap-10 px-3 md:px-0">
           {children}
         </main>
         <ToastContainer />

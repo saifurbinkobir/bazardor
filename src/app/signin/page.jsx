@@ -7,6 +7,23 @@ import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 
 const SignInPage = () => {
+
+    const handleSignUp = async(e) => {
+            e.preventDefault()
+            const formData = new FormData(e.target);
+            const user = Object.fromEntries(formData.entries());
+            
+            const {data, error} = await authClient.signIn.email({
+                ...user,
+                callbackURL: "/"
+            });
+            if(data){
+                toast.success(`Sign in Successfully!`)
+            }
+            if(error){
+                toast.error(error.message);
+            }
+        }
     return (
         <div className="my-10 flex flex-col items-center">
               <h2 className="text-[#1D271F] font-bold text-[24px]">
@@ -51,7 +68,7 @@ const SignInPage = () => {
                     type="submit"
                     className="rounded-lg bg-[#047F39] px-4.5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_3px_-2px_rgba(5,137,62,0.3)] cursor-pointer"
                   >
-                    অ্যাকাউন্ট তৈরি করুন
+                    সাইন ইন
                   </button>
                 </form>
         
@@ -79,12 +96,13 @@ const SignInPage = () => {
                 </div>
         
                 <p className="text-[#1D271F] text-[14px] font-normal text-center mt-4">
-                  অ্যাকাউন্ট আছে?
-                  <Link href="/signin" className="text-[#05893E]">
-                    সাইন ইন করুন
+                  অ্যাকাউন্ট নেই?
+                  <Link href="/signup" className="text-[#05893E]">
+                    সাইন আপ করুন
                   </Link>
                 </p>
               </div>
+              <p className="text-[#717973] text-[14px] font-normal"><Link href={'/'}>← হোম পেজে ফিরে যান</Link></p>
             </div>
     );
 };

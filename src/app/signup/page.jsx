@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
@@ -132,6 +131,7 @@ const SignUpPage = () => {
           </Link>
         </p>
       </div>
+      <p className="text-[#717973] text-[14px] font-normal"><Link href={'/'}>← হোম পেজে ফিরে যান</Link></p>
     </div>
   );
 };

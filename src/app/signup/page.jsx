@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa6";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
   const router = useRouter();

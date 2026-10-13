@@ -15,7 +15,7 @@ const Header = () => {
         <div className="container mx-auto flex justify-between">
           <Link href={"/"}>
             <div className="flex gap-2">
-              <p className="bg-[#05893E] py-2.5 px-2.75 rounded-xl">🛒</p>
+              <p className="bg-[#05893E] py-3 px-1.5 md:py-2.5 md:px-2.75 rounded-xl">🛒</p>
               <h2 className="font-bold text-[20px] text-[#1D271F] flex flex-col">
                 বাজার দর <br />
                 <span className="font-light text-[12px]">{date}</span>
